@@ -1,0 +1,63 @@
+<head>
+  <title>FACC Scoreboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <link rel="stylesheet" type="text/css" href="scoreboard.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="background"></div>
+    <div id="rocket"></div>
+    <div id="matchInfo">
+      <span id="eventName">FACC Ri3D 2019</span
+      ><span id="matchName">Qualifications 1</span>
+    </div>
+    <div id="scoreInfo">
+      <div id="redScore">
+        <div class="teams">
+          Teams
+          <ul>
+            <li>MSU</li>
+            <li>UofM</li>
+          </ul>
+        </div>
+        <div class="pointsBreakdown">
+          <div class="scoreBox">
+            <span class="score"><i>101</i></span> <span class="win">WIN</span>
+          </div>
+
+          <span class="sandstorm">Sandstorm: <i>10</i></span>
+          <span class="hatch">Hatch: <i>100</i></span>
+          <span class="cargo">Cargo: <i>10</i></span
+          ><span class="climb">Climb: <i>10</i></span>
+        </div>
+        <div class="rpBreakdown">
+          <span class="docking won">Docking</span>
+          <span class="rocket lost">Rocket</span>
+        </div>
+      </div>
+      <div id="blueScore">
+        <div class="teams">
+          Teams
+          <ul>
+            <li>MSU</li>
+            <li>UofM</li>
+          </ul>
+        </div>
+        <div class="pointsBreakdown">
+          <div class="scoreBox">
+            <span class="score"><i>101</i></span> <span class="win"></span>
+          </div>
+          <span class="sandstorm">Sandstorm: <i>10</i></span>
+          <span class="hatch">Hatch: <i>100</i></span>
+          <span class="cargo">Cargo: <i>10</i></span
+          ><span class="climb">Climb: <i>10</i></span>
+        </div>
+        <div class="rpBreakdown">
+          <span class="docking"><i></i> Docking</span>
+          <span class="rocket"><i></i> Rocket</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scoreboard.js"></script>
+</body>

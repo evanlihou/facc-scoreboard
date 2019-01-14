@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:500,700');
+
+body {
+  color: white;
+  font-family: 'Asap', sans-serif;
+  font-size: 15pt;
+  margin: 0;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+i {
+  font-style: normal;
+}
+
+#app {
+  padding-bottom: 56.25%;
+  display: flex;
+  flex-direction: column;
+}
+
+#scoreInfo {
+  display: flex;
+  justify-content: space-around;
+}
+
+#background {
+  z-index: -10;
+  background: url('bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#rocket {
+  z-index: -5;
+  background: url('rocket.jpg') no-repeat center bottom fixed;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#redScore,
+#blueScore {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 30px;
+  color: black;
+  width: 40%;
+  position: relative;
+}
+
+#blueScore {
+  background: lightblue;
+  border-color: blue;
+}
+
+#redScore {
+  background: pink;
+  border-color: red;
+}
+
+#MatchInfo {
+  display: block;
+  padding-top: 5vh;
+  width: 50%;
+  height: 120px;
+  margin: 0 25%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#matchName {
+  font-size: 2.2rem;
+}
+
+span {
+  display: block;
+  margin: 10px 0;
+}
+
+.scoreBox {
+  border: 1px solid #333;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  height: 50px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  width: 60px;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.win:empty {
+  display: none;
+}
+
+.scoreBox > * {
+  margin: 0;
+  display: block;
+}
+
+.score {
+  font-weight: 700;
+}
+
+.rpBreakdown {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.3rem;
+}
+
+.rpBreakdown > .won::before {
+  content: '\2713  ';
+}
+
+.rpBreakdown > .lost::before {
+  content: '\2717  ';
+}
+
+.pointsBreakdown span i {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
