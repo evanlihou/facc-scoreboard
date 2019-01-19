@@ -1,0 +1,3 @@
+[submodule "facc-scoreboard-client"]
+	path = facc-scoreboard-client
+	url = https://github.com/evanlihou/facc-scoreboard-client.git
