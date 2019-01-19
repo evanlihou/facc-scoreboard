@@ -88,64 +88,6 @@ calculateScore = match => {
 // MODEL FOR DATABASE
 var Match = mongoose.model('Match', matchSchema);
 
-// var newMatch = new Match({
-//   matchType: currentMatch ? currentMatch.matchType : '',
-//   matchNumber: currentMatch ? currentMatch.matchNumber + 1 : 1,
-//   matchStatus: 'pending',
-//   redAlliance: {
-//     teams: [],
-//     scoringDetails: {
-//       sandstorm: {
-//         level1: null,
-//         level2: null
-//       },
-//       hatchPanels: null,
-//       cargo: null,
-//       habClimb: {
-//         level1: null,
-//         level2: null,
-//         level3: null
-//       },
-//       habDocking: null,
-//       completeRocket: null
-//     },
-//     fouls: null,
-//     techFouls: null,
-//     totalPoints: null,
-//     rankingPoints: null
-//   },
-//   blueAlliance: {
-//     teams: [],
-//     scoringDetails: {
-//       sandstorm: {
-//         level1: null,
-//         level2: null
-//       },
-//       hatchPanels: null,
-//       cargo: null,
-//       habClimb: {
-//         level1: null,
-//         level2: null,
-//         level3: null
-//       },
-//       habDocking: null,
-//       completeRocket: null
-//     },
-//     fouls: null,
-//     techFouls: null,
-//     totalPoints: null,
-//     rankingPoints: null
-//   }
-// });
-// // SAVING MODEL
-// newMatch.save(function(err, newMatch) {
-//   if (err) return console.error(err);
-//   io.emit('updateMatch', newMatch);
-//   console.log('STARTED NEW MATCH');
-//   currentMatch = newMatch;
-//   console.log(currentMatch);
-// });
-
 // WEBSOCKETS
 io.on('connection', function(socket) {
   // EMIT CURRENT GAME TO NEW CONNECTIONS
@@ -236,6 +178,17 @@ io.on('connection', function(socket) {
     io.emit('updateMatch', match);
     currentMatch = match;
     // console.log(match);
+  });
+
+  socket.on('getMatchHistory', async function(msg) {
+    console.log('Requested match history');
+    var matches = await Match.find().sort('-_id');
+    socket.emit('matchHistory', matches);
+  });
+
+  socket.on('setCurrentMatch', async function(msg) {
+    currentMatch = await Match.findById(msg);
+    io.emit('updateMatch', currentMatch);
   });
 });
 
